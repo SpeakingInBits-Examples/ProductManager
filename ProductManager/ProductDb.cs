@@ -8,9 +8,13 @@ namespace ProductManager;
 
 public static class ProductDb
 {
+    /// <summary>
+    /// Gets a connection object for the ProductManagerDb.
+    /// The connection needs to be opened and closed after it's used.
+    /// </summary>
     public static SqlConnection GetConnection()
     {
-        throw new NotImplementedException();
+        return new SqlConnection("Data Source=localhost;Initial Catalog=ProductManagerDb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30");
     }
 
     /// <summary>
