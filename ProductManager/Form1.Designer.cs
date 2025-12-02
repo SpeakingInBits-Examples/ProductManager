@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            lstProducts = new ListBox();
             SuspendLayout();
+            // 
+            // lstProducts
+            // 
+            lstProducts.FormattingEnabled = true;
+            lstProducts.Location = new Point(50, 44);
+            lstProducts.Name = "lstProducts";
+            lstProducts.Size = new Size(261, 139);
+            lstProducts.TabIndex = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lstProducts);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -42,5 +52,7 @@
         }
 
         #endregion
+
+        private ListBox lstProducts;
     }
 }
