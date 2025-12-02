@@ -1,4 +1,5 @@
-﻿using ProductManager.Classes;
+﻿using Microsoft.Data.SqlClient;
+using ProductManager.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,11 @@ namespace ProductManager;
 
 public static class ProductDb
 {
+    public static SqlConnection GetConnection()
+    {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// This will return all products from the database
     /// sorted in ascending order by Name.
