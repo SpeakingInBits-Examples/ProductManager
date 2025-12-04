@@ -19,5 +19,21 @@ namespace ProductManager
                 lstProducts.Items.Add(p);
             }
         }
+
+        private void BtnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            // If no product is selected, tell user and return immediately
+            if (lstProducts.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a product to delete.");
+                return;
+            }
+
+            Product selectedProd = lstProducts.SelectedItem as Product;
+
+            ProductDb.DeleteProduct(selectedProd);
+
+            MessageBox.Show($"Product {selectedProd.Name} deleted.");
+        }
     }
 }
