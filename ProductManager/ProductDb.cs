@@ -31,6 +31,7 @@ public static class ProductDb
         con.Open();
 
         // Prepare SQL command
+        // Raw string literal - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/raw-string
         string query = """
             SELECT Id, SalesPrice, Name
             FROM Products
