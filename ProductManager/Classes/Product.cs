@@ -23,6 +23,10 @@ public class Product
     /// </summary>
     public required string Name { get; set; }
 
+    /// <summary>
+    /// This returns the Name of the product so when a Product object is displayed
+    /// it will show the name instead of the fully qualified class name.
+    /// </summary>
     public override string ToString()
     {
         return Name;
