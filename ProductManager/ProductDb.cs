@@ -79,11 +79,25 @@ public static class ProductDb
 
     public static void DeleteProduct(Product p) 
     {
-        throw new NotImplementedException();
+        DeleteProduct(p.Id);
     }
 
     public static void DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        SqlConnection con = GetConnection();
+
+        SqlCommand deleteCommand = new()
+        {
+            Connection = con,
+            CommandText = "DELETE FROM Products WHERE Id = @prodId"
+        };
+        // Using a parameterized query to prevent SQL Injection attacks
+        deleteCommand.Parameters.AddWithValue("@prodId", productId);
+
+        con.Open();
+
+        int rows = deleteCommand.ExecuteNonQuery();
+
+        con.Close();
     }
 }
