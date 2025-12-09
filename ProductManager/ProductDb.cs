@@ -98,9 +98,33 @@ public static class ProductDb
         con.Close();
     }
 
+    /// <summary>
+    /// Updates an existing product in the database by its id. All fields are updated except the id.
+    /// </summary>
+    /// <param name="p">The product to be updated</param>
+    /// <exception cref="SqlException">Throws if db is not available</exception>"
     public static void UpdateProduct(Product p)
     {
-        throw new NotImplementedException();
+        SqlConnection con = GetConnection();
+
+        SqlCommand updateCommand = new()
+        {
+            Connection = con,
+            CommandText = "UPDATE Products" +
+                    " SET SalesPrice = @price," +
+                    " Name = @name" +
+                    " WHERE Id = @id"
+        };
+
+        updateCommand.Parameters.AddWithValue("@price", p.SalesPrice);
+        updateCommand.Parameters.AddWithValue("@name", p.Name);
+        updateCommand.Parameters.AddWithValue("@id", p.Id);
+
+        con.Open();
+
+        int rows = updateCommand.ExecuteNonQuery();
+
+        con.Close();
     }
 
     public static void DeleteProduct(Product p) 
