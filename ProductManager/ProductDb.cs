@@ -70,9 +70,32 @@ public static class ProductDb
         return allProducts;
     }
 
+    /// <summary>
+    /// Adds a new product to the database.
+    /// </summary>
+    /// <param name="p">The product to be added</param>
+    /// <exception cref="SqlException">Throws if db is not available</exception>"
     public static void AddProduct(Product p)
     {
-        throw new NotImplementedException(); 
+        SqlConnection con = GetConnection();
+
+        SqlCommand insertCommand = new()
+        {
+            Connection = con,
+            // Skip the Id column as it's an identity column
+            CommandText = "INSERT INTO Products (SalesPrice, Name)" +
+            " VALUES (@price, @productName)"
+        };
+
+        // Add parameters to prevent SQL Injection attacks
+        insertCommand.Parameters.AddWithValue("@price", p.SalesPrice);
+        insertCommand.Parameters.AddWithValue("@productName", p.Name);
+
+        con.Open();
+
+        int rows = insertCommand.ExecuteNonQuery();
+
+        con.Close();
     }
 
     public static void UpdateProduct(Product p)
