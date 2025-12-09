@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ProductManager;
 
+/// <summary>
+/// Provides helper methods to interact with the ProductManagerDb database.
+/// </summary>
 public static class ProductDb
 {
     /// <summary>
@@ -14,7 +17,7 @@ public static class ProductDb
     /// </summary>
     public static SqlConnection GetConnection()
     {
-        return new SqlConnection("Data Source=localhost;Initial Catalog=ProductManagerDb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30");
+        return new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ProductManagerDb;Integrated Security=True;");
     }
 
     /// <summary>
@@ -82,6 +85,11 @@ public static class ProductDb
         DeleteProduct(p.Id);
     }
 
+    /// <summary>
+    /// Deletes a product from the database by its id.
+    /// </summary>
+    /// <param name="productId">The id of the product we want to delete</param>
+    /// <exception cref="SqlException">Throws if db is not available</exception>"
     public static void DeleteProduct(int productId)
     {
         SqlConnection con = GetConnection();
