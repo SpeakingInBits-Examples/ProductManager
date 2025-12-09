@@ -1,6 +1,6 @@
 ﻿namespace ProductManager
 {
-    partial class Form1
+    partial class WelcomeForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,6 +30,8 @@
         {
             lstProducts = new ListBox();
             btnDeleteProduct = new Button();
+            btnUpdateProduct = new Button();
+            btnAddProduct = new Button();
             SuspendLayout();
             // 
             // lstProducts
@@ -50,11 +52,31 @@
             btnDeleteProduct.UseVisualStyleBackColor = true;
             btnDeleteProduct.Click += BtnDeleteProduct_Click;
             // 
+            // btnUpdateProduct
+            // 
+            btnUpdateProduct.Location = new Point(330, 129);
+            btnUpdateProduct.Name = "btnUpdateProduct";
+            btnUpdateProduct.Size = new Size(144, 70);
+            btnUpdateProduct.TabIndex = 2;
+            btnUpdateProduct.Text = "Update Selected Product";
+            btnUpdateProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnAddProduct
+            // 
+            btnAddProduct.Location = new Point(330, 218);
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(144, 70);
+            btnAddProduct.TabIndex = 3;
+            btnAddProduct.Text = "Add New Product";
+            btnAddProduct.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(520, 315);
+            Controls.Add(btnAddProduct);
+            Controls.Add(btnUpdateProduct);
             Controls.Add(btnDeleteProduct);
             Controls.Add(lstProducts);
             Name = "Form1";
@@ -67,5 +89,7 @@
 
         private ListBox lstProducts;
         private Button btnDeleteProduct;
+        private Button btnUpdateProduct;
+        private Button btnAddProduct;
     }
 }
