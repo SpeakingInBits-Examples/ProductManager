@@ -69,8 +69,9 @@
             btnAddProduct.TabIndex = 3;
             btnAddProduct.Text = "Add New Product";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += this.btnAddProduct_Click;
             // 
-            // Form1
+            // WelcomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -79,7 +80,7 @@
             Controls.Add(btnUpdateProduct);
             Controls.Add(btnDeleteProduct);
             Controls.Add(lstProducts);
-            Name = "Form1";
+            Name = "WelcomeForm";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);

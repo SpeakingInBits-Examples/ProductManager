@@ -47,5 +47,17 @@ namespace ProductManager
 
             MessageBox.Show($"Product {selectedProd.Name} deleted.");
         }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            AddUpdateProductForm addForm = new();
+            DialogResult result = addForm.ShowDialog();
+
+            // Only refresh is a new product was added
+            if (result == DialogResult.OK)
+            {
+                LoadAllProducts();
+            }
+        }
     }
 }
