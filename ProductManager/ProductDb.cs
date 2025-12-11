@@ -17,7 +17,7 @@ public static class ProductDb
     /// </summary>
     public static SqlConnection GetConnection()
     {
-        return new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ProductManagerDb;Integrated Security=True;");
+        return new SqlConnection("Data Source=localhost;Initial Catalog=ProductManagerDb;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30");
     }
 
     /// <summary>

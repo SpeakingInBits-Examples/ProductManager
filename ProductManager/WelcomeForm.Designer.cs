@@ -60,6 +60,7 @@
             btnUpdateProduct.TabIndex = 2;
             btnUpdateProduct.Text = "Update Selected Product";
             btnUpdateProduct.UseVisualStyleBackColor = true;
+            btnUpdateProduct.Click += btnUpdateProduct_Click;
             // 
             // btnAddProduct
             // 
@@ -69,7 +70,7 @@
             btnAddProduct.TabIndex = 3;
             btnAddProduct.Text = "Add New Product";
             btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += this.btnAddProduct_Click;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // WelcomeForm
             // 

@@ -59,5 +59,19 @@ namespace ProductManager
                 LoadAllProducts();
             }
         }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            if (lstProducts.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a product to update.");
+                return;
+            }
+
+            Product selectedProduct = lstProducts.SelectedItem as Product;
+            AddUpdateProductForm updateForm = new(selectedProduct);
+            updateForm.ShowDialog();
+            LoadAllProducts();
+        }
     }
 }
